@@ -26,9 +26,9 @@
 <script lang="ts">
     import {Component, Vue} from 'vue-property-decorator';
     import {Login} from '@/types/userTypes';
-    import {Action, namespace} from 'vuex-class';
+    import {namespace} from 'vuex-class';
 
-    const UserActions = namespace('user', Action);
+    const userModule = namespace('user');
 
     @Component
     export default class LoginBox extends Vue {
@@ -42,7 +42,7 @@
             };
         }
 
-        @UserActions signUserIn: any;
+        @userModule.Action signUserIn: any;
     }
 </script>
 
