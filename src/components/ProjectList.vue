@@ -110,11 +110,10 @@
     import {Component, Vue} from 'vue-property-decorator';
     import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue';
     import ClipLoader from 'vue-spinner/src/ClipLoader.vue';
-    import {Action, Getter, namespace} from 'vuex-class';
+    import {namespace} from 'vuex-class';
     import {Project} from '@/types/projectsTypes';
 
-    const ProjectsGetters = namespace('projects', Getter);
-    const ProjectsActions = namespace('projects', Action);
+    const projectsModule = namespace('projects');
 
     @Component({
         name: 'projectList',
@@ -130,8 +129,8 @@
         currentPage = 1;
         perPage = 5;
 
-        @ProjectsGetters projects!: Project[];
-        @ProjectsActions fetchProjectsFromApi: any;
+        @projectsModule.Getter projects!: Project[];
+        @projectsModule.Action fetchProjectsFromApi: any;
 
         created() {
             this.fetchProjectsFromApi();
