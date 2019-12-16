@@ -95,8 +95,8 @@
                                 </div>
                             </b-dropdown-item>
                             <b-dropdown-item
-                                    v-if="((!props.row.alerts.blocking) && props.row.projectId && (props.row.scanner !== false))"
-                                    aria-role="listitem" @click="confirmReadiness(props.row)">
+                                v-if="((!props.row.alerts.blocking) && props.row.projectId && (props.row.scanner !== false))"
+                                aria-role="listitem" @click="confirmReadiness(props.row)">
                                 <div class="media">
                                     <b-icon type="is-success" class="media-left" icon="check-double"/>
                                     <div class="media-content has-text-success">
