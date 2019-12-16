@@ -17,7 +17,7 @@ const mutations: MutationTree<ProjectsState> = {
 };
 
 const actions: ActionTree<ProjectsState, any> = {
-    async fetchProjectsFromApi({commit}, payload) {
+    async getProjects({commit}, payload) {
         commit('setLoading', true);
         try {
             const projects = await apiService.getProjects();

@@ -137,10 +137,10 @@
         perPage = 5;
 
         @projectsModule.Getter projects!: Project[];
-        @projectsModule.Action fetchProjectsFromApi: any;
+        @projectsModule.Action getProjects: any;
 
         created() {
-            this.fetchProjectsFromApi();
+            this.getProjects();
         }
 
         getDays(dateString: string | number | Date) {
