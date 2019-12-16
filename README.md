@@ -9,6 +9,12 @@ In this project you will find examples on how to do useful things like:
 - Unit Test coverage
 - Types
 
+
+[![Build Status](https://travis-ci.com/re2005/vue-typescript-real-world-example.svg?branch=master)](https://travis-ci.com/re2005/vue-typescript-real-world-example)
+
+[DEMO](https://re2005.github.io/vue-typescript-real-world-example/)
+
+
 ## Project setup
 ```
 npm i
