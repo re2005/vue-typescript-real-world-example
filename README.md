@@ -1,6 +1,13 @@
 # Vue TypeScript real world example
 
-Making usage of store, authentication with firebase and coverage about how to build normal components.
+In this project you will find examples on how to do useful things like: 
+
+- Vuex store
+- Dynamic two way binding
+- Form validation
+- Login/router guard
+- Unit Test coverage
+- Types
 
 ## Project setup
 ```
@@ -19,7 +26,7 @@ npm run build
 
 ### Run your unit tests
 ```
-npm run test:unit
+npm run test
 ```
 
 ### Lints and fixes files

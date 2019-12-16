@@ -28,22 +28,15 @@
         }
     })
     export default class MyProjects extends Vue {
-        user: Login | {};
-        heroData: object;
-
-        constructor() {
-            super();
-            this.user = {
-                email: '',
-                password: ''
-            };
-
-            this.heroData = {
-                title: 'My projects',
-                subtitle: 'Here is your list of projects',
-                class: ['hero', 'is-primary', 'is-bold']
-            };
-        }
+        user: Login = {
+            email: '',
+            password: ''
+        };
+        heroData = {
+            title: 'My projects',
+            subtitle: 'Here is your list of projects',
+            class: ['hero', 'is-primary', 'is-bold']
+        };
     }
 </script>
 

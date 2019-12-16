@@ -9,6 +9,7 @@ import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import authService from '@/services/authentication.service';
+import '@/helpers/validators';
 
 Vue.config.productionTip = false;
 Vue.prototype.$authService = authService;

@@ -8,6 +8,13 @@
                      :per-page="perPage"
                      detail-key="id">
                 <template slot-scope="props">
+
+                    <b-table-column field="projectName" label="Project name" sortable>
+                        <router-link :to="{ name: 'project-detail', params: { id: props.row.id }}">{{
+                            props.row.projectName }}
+                        </router-link>
+                    </b-table-column>
+
                     <b-table-column width="220px" column field="projectId" label="Project ID" sortable>
                         <router-link v-if="props.row.projectId"
                                      :to="{ path: '/project/', params: { id: props.row.id }}">
@@ -19,7 +26,16 @@
                             </b-tooltip>
                         </div>
                     </b-table-column>
-                    <b-table-column width="80px" field="alerts" label="" centered>
+
+                    <b-table-column field="createdAt" label="Since" sortable>
+                        <div>
+                            <b-tooltip :label="new Date(props.row.lastScan).toLocaleDateString()">
+                                <span class="tag is-default"> {{ getDays(props.row.createdAt) }} </span>
+                            </b-tooltip>
+                        </div>
+                    </b-table-column>
+
+                    <b-table-column width="80px" field="alerts" label="Alerts" centered>
                         <b-taglist>
                             <b-tooltip label="Alerts">
                                 <div v-if="props.row.alerts.blocking" class="tag has-text-weight-bold is-danger">
@@ -27,18 +43,6 @@
                                 </div>
                             </b-tooltip>
                         </b-taglist>
-                    </b-table-column>
-                    <b-table-column field="projectName" label="Project name">
-                        <router-link :to="{ name: 'project-detail', params: { id: props.row.id }}">{{
-                            props.row.projectName }}
-                        </router-link>
-                    </b-table-column>
-                    <b-table-column field="createdAt" label="Since" sortable>
-                        <div>
-                            <b-tooltip :label="new Date(props.row.lastScan).toLocaleDateString()">
-                                <span class="tag is-default"> {{ getDays(props.row.createdAt) }} </span>
-                            </b-tooltip>
-                        </div>
                     </b-table-column>
 
                     <b-table-column field="testing" label="Scanner" centered>
@@ -57,6 +61,7 @@
                         <b-icon v-else-if="props.row.scanner === 2" icon="circle" type="is-success">
                         </b-icon>
                     </b-table-column>
+
                     <b-table-column field="menue" icon="sliders-h" centered>
                         <b-dropdown aria-role="list" class="is-pulled-right" position="is-bottom-left">
                             <b-icon type="is-default" icon="ellipsis-h" slot="trigger"/>
@@ -89,7 +94,9 @@
                                     </div>
                                 </div>
                             </b-dropdown-item>
-                            <b-dropdown-item v-if="((!props.row.alerts.blocking) && props.row.projectId && (props.row.scanner !== false))" aria-role="listitem" @click="confirmReadiness(props.row)">
+                            <b-dropdown-item
+                                    v-if="((!props.row.alerts.blocking) && props.row.projectId && (props.row.scanner !== false))"
+                                    aria-role="listitem" @click="confirmReadiness(props.row)">
                                 <div class="media">
                                     <b-icon type="is-success" class="media-left" icon="check-double"/>
                                     <div class="media-content has-text-success">
