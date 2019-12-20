@@ -15,10 +15,11 @@ Vue.config.productionTip = false;
 Vue.prototype.$authService = authService;
 
 library.add(fas);
-Vue.component('vue-fontawesome', FontAwesomeIcon);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
+
 Vue.use(Buefy, {
     defaultIconPack: 'fas',
-    defaultIconComponent: 'vue-fontawesome'
+    defaultIconComponent: 'font-awesome-icon'
 });
 
 new Vue({
